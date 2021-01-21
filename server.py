@@ -38,18 +38,15 @@ def say_hello():
       </head>
       <body>
         <h1>Hi There!</h1>
-        <form action="/greet">
-          What's your name? <input type="text" name="person">
+        <form action="/greet" method="GET">
+          What's your name? <input type="text" name="person"><br>
+          choose a compliment!
+          <input type="radio" name="kind" value="kind">kind</input>
+          <input type="radio" name="beautiful" value="beautiful">beautiful</input>
+          <input type="radio" name="smart" value="smart">smart</input>
+          <input type="radio" name="talented" value="talented">talented</input>
+          <input type="radio" name="strong" value="strong">strong</input>
           <input type="submit" value="Submit">
-        </form>
-        <form action="/greet">
-          <label>Select a compliment!</label>
-          <select text="text" name="person">
-            <option value="select"></option>
-            <option value="beautiful">You are beautiful!</option>
-            <option value="kind">You are kind!</option>
-            <option value="great-friend">You are a great friend!</option>
-          </select>
         </form>
       </body>
     </html>
@@ -61,8 +58,9 @@ def greet_person():
     """Get user by name."""
 
     player = request.args.get("person")
+    compliment = request.args.get("compliment")
 
-    compliment = choice(AWESOMENESS)
+    # compliment = choice(AWESOMENESS)
 
     return """
     <!doctype html>
