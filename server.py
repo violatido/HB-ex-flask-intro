@@ -38,14 +38,15 @@ def say_hello():
       </head>
       <body>
         <h1>Hi There!</h1>
-        <form action="/greet" method="GET">
+        <form action="/greet" method='GET'>
           What's your name? <input type="text" name="person"><br>
           choose a compliment!
-          <input type="radio" name="kind" value="kind">kind</input>
-          <input type="radio" name="beautiful" value="beautiful">beautiful</input>
-          <input type="radio" name="smart" value="smart">smart</input>
-          <input type="radio" name="talented" value="talented">talented</input>
-          <input type="radio" name="strong" value="strong">strong</input>
+          <input type="radio" name="compliment" value="kind">kind</input>
+          <input type="radio" name="compliment" value="beautiful">beautiful</input>
+          <input type="radio" name="compliment" value="smart">smart</input>
+          <input type="radio" name="compliment" value="talented">talented</input>
+          <input type="radio" name="compliment" value="strong">strong</input>
+          <input type="radio" name="compliment" value="wonderful">Wonderful<br>
           <input type="submit" value="Submit">
         </form>
       </body>
@@ -62,17 +63,17 @@ def greet_person():
 
     # compliment = choice(AWESOMENESS)
 
-    return """
+    return f"""
     <!doctype html>
     <html>
       <head>
         <title>A Compliment</title>
       </head>
       <body>
-        Hi, {}! I think you're {}!
+        Hi, {player}! I think you're {compliment}!
       </body>
     </html>
-    """.format(player, compliment)
+    """
 
 
 if __name__ == '__main__':
